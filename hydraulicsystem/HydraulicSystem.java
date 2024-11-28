@@ -9,7 +9,7 @@ public class HydraulicSystem {
     public HydraulicSystem (Tube t, Pump p, Valve v, WaterTank wt) {
         tube = t;
         pump = p;
-        valve = v;
+        valve = v.open();
         tank = wt;
     }
 
@@ -52,7 +52,7 @@ public class HydraulicSystem {
     /**
      * Injects a water flow into a series of components to test the combined behavior
      */
-    public double testInSeries (double inputFlow, int ...component) {
+    public double testInSeries (double inputFlow, final int ...components) {
         for (int i : component) {
             
             inputFlow = testComponent(inputFlow, i);
@@ -73,7 +73,7 @@ public class HydraulicSystem {
      * 3 - to print valve's informations
      * 4 - to print water tank's informations
      */
-    public boolean printInfo (int component) {
+    public boolean printInfo (final int component) {
         switch(component) {
             case 1:
                 pump.printInfo();
