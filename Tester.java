@@ -10,12 +10,15 @@ public class Tester {
     public static void main (String args[]) {
         var hs = new HydraulicSystem();
 
+        System.out.println(hs);
+
         hs.printInfo(TUBE);
         System.out.println("Tube tested with 100 litres - output: " + hs.testComponent(100, TUBE));
 
         hs.printInfo(PUMP);
         System.out.println("Pump tested with 100 litres - output: " + hs.testComponent(100, PUMP));
 
+        hs.closeValve();
         hs.printInfo(VALVE);
         System.out.println("Valve tested with 100 litres while closed - output: " + hs.testComponent(100, VALVE));
         hs.openValve();
